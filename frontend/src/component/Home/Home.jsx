@@ -6,12 +6,12 @@ import bg2 from "../../Assets/background2.jpg";
 import ProductCard from "../Products/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/ProductActions";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../../more/loader";
 import Footer from "../Layout/Footer";
 import Header from "../Layout/Header";
+import MetaData from "../../more/Metadata";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,6 +31,7 @@ const Home = () => {
         <Loading />
       ) : (
         <>
+          <MetaData title="Home" />
           <Header />
           {/* Carousel */}
           <div className="banner">

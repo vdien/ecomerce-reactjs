@@ -49,13 +49,13 @@ exports.loginUser = catchAsyncErrors(async(req, res, next) => {
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
         return next(
-            new ErrorHandle("User is not found with this email & password", 401)
+            new ErrorHandler("User is not found with this email & password", 401)
         );
     }
     const isPasswordMatched = await user.comparePassword(password);
     if (!isPasswordMatched) {
         return next(
-            new ErrorHandle("User is not found with this email & password", 401)
+            new ErrorHandler("User is not found with this email & password", 401)
         );
     }
     sendToken(user, 201, res);
@@ -114,7 +114,7 @@ exports.forgetPassword = catchAsyncErrors(async(req, res, next) => {
             validateBeforeSave: false,
         });
 
-        return next(new ErrorHandle(error.message, 500));
+        return next(new ErrorHandler(error.message, 500));
     }
 });
 // Reset Password
@@ -168,11 +168,11 @@ exports.updatePassword = catchAsyncErrors(async(req, res, next) => {
 
     const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
     if (!isPasswordMatched) {
-        return next(new ErrorHandle("Old Password is incorrect", 400));
+        return next(new ErrorHandler("Old Password is incorrect", 400));
     }
 
     if (req.body.newPassword !== req.body.confirmPassword) {
-        return next(new ErrorHandle(" Password not matched with each other", 400));
+        return next(new ErrorHandler(" Password not matched with each other", 400));
     }
     user.password = req.body.newPassword;
 
@@ -232,7 +232,7 @@ exports.getSingleUser = catchAsyncErrors(async(req, res, next) => {
     const user = await User.findById(req.params.id);
 
     if (!user) {
-        return next(new ErrorHandle("User is not found with this id", 400));
+        return next(new ErrorHandler("User is not found with this id", 400));
     }
 
     res.status(200).json({

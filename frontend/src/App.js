@@ -1,22 +1,24 @@
-import { useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./component/Home/Home";
-import WebFont from "webfontloader";
+import ProductDetails from "./component/Products/ProductDetails";
+import LoginSignup from "./component/Authentication/LoginSignup";
+
 function App() {
-  useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ["Roboto", "Droid Sans", "Chilanka"],
-      },
-    });
-  }, []);
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Home />
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/product/:id">
+          <ProductDetails />
+        </Route>
+        <Route exact path="/login">
+          <LoginSignup />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
