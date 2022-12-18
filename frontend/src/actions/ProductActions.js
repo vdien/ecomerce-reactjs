@@ -9,24 +9,32 @@ import {
     PRODUCT_DETAILS_SUCCESS,
 } from "../constans/ProductConstans";
 
-export const getProduct = () => async(dispatch) => {
-    try {
-        dispatch({
-            type: ALL_PRODUCT_REQUEST,
-        });
-        let link = `/api/v2/products`;
-        const { data } = await axios.get(link);
-        dispatch({
-            type: ALL_PRODUCT_SUCCESS,
-            payload: data,
-        });
-    } catch (error) {
-        dispatch({
-            type: ALL_PRODUCT_FAIL,
-            payload: error.response.data.message,
-        });
-    }
-};
+export const getProduct =
+    (keyword = "", currentPage = 1, category) =>
+    async(dispatch) => {
+        try {
+            dispatch({
+                type: ALL_PRODUCT_REQUEST,
+            });
+
+            let link = `/api/v2/products?keyword=${keyword}&page=${currentPage}`;
+
+            if (category) {
+                link = `/api/v2/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
+            }
+            const { data } = await axios.get(link);
+
+            dispatch({
+                type: ALL_PRODUCT_SUCCESS,
+                payload: data,
+            });
+        } catch (error) {
+            dispatch({
+                type: ALL_PRODUCT_FAIL,
+                payload: error.response.data.message,
+            });
+        }
+    };
 
 // Get All Products Details
 export const getProductDetails = (id) => async(dispatch) => {

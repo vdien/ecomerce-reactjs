@@ -1,7 +1,7 @@
 import { React, useEffect, useRef, useState } from "react";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import FaceIcon from "@material-ui/icons/Face";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import FaceIcon from "@mui/icons-material/Face";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./LoginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
