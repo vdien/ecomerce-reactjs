@@ -1,19 +1,19 @@
-const ErrorHandle = require("../utils/ErrorHandle")
+const ErrorHandler = require("../utils/ErrorHandler.js");
 
 module.exports = (err, req, res, next) => {
-    err.statusCode = err.statusCode || 500
-    err.message = err.message || "Interval server error"
+    err.statusCode = err.statusCode || 500;
+    err.message = err.message || "Interval server error";
 
     //wrong mongodb id error
     if (err.name === "CastError") {
-        const message = `Resources not found with this id... Invalid${err.path}`
-        err = new ErrorHandle(message, 400)
+        const message = `Resources not found with this id... Invalid${err.path}`;
+        err = new ErrorHandler(message, 400);
     }
 
     //Duplicate key error
     if (err.code === 11000) {
         const message = `Duplicate ${Object.keys(err.keyValue)} Entered`;
-        err = new ErrorHandle(message, 400)
+        err = new ErrorHandler(message, 400);
     }
     // Wrong Jwt error
     if (err.name === "JsonWebTokenError") {
@@ -29,6 +29,6 @@ module.exports = (err, req, res, next) => {
 
     res.status(err.statusCode).json({
         success: false,
-        message: err.message
-    })
-}
+        message: err.message,
+    });
+};

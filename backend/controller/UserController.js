@@ -6,7 +6,8 @@ const Sendmail = require("../utils/sendMail.js");
 const sendMail = require("../utils/sendMail.js");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
-const ErrorHandler = require("../utils/ErrorHandle.js");
+const ErrorHandler = require("../utils/ErrorHandler.js");
+
 // Register user
 exports.createUser = catchAsyncErrors(async(req, res, next) => {
     try {

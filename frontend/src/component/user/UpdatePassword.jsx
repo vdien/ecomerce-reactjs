@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import LockIcon from "@mui/icons-material/Lock";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import { clearErrors, updatePassword } from "../../actions/userAction";
+import { clearErrors, updatePassword } from "../../redux/actions/userAction";
 import { ToastContainer, toast } from "react-toastify";
-import Loading from "../../more/loader";
-import MetaData from "../../more/Metadata";
-import { UPDATE_PASSWORD_RESET } from "../../constans/userConstans";
+import Loading from "../more/loader";
+import MetaData from "../more/Metadata";
+import { UPDATE_PASSWORD_RESET } from "../../redux/constans/userConstans";
 import { useHistory } from "react-router-dom";
 
 const UpdatePassword = () => {

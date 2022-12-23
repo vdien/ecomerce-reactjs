@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Rating } from "@material-ui/lab";
-import Loading from "../../more/loader";
+import Loading from "../more/loader";
 
 const ReviewCard = ({ review }) => {
   // eslint-disable-next-line

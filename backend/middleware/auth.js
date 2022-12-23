@@ -1,8 +1,7 @@
-const ErrorHandler = require("../utils/ErrorHandle");
+const ErrorHandler = require("../utils/ErrorHandler.js");
 const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
 const User = require("../models/UserModel");
-
 
 exports.isAuthenticatedUser = catchAsyncErrors(async(req, res, next) => {
     const { token } = req.cookies;
@@ -18,13 +17,14 @@ exports.isAuthenticatedUser = catchAsyncErrors(async(req, res, next) => {
     next();
 });
 
-
 // Admin Roles
 exports.authorizeRoles = (...roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user.role)) {
-            return next(new ErrorHandler(`${req.user.role} can not access this resources`));
-        };
+            return next(
+                new ErrorHandler(`${req.user.role} can not access this resources`)
+            );
+        }
         next();
-    }
-}
+    };
+};

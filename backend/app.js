@@ -1,26 +1,31 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const app = express();
 const ErrorHandle = require("./middleware/error");
 const cookieParser = require("cookie-parser");
-
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
-
-app.use(express.json());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb", extended: true }));
-app.use(fileUpload({ useTempFiles: true }));
 
 //Route imports
 const product = require("./routes/ProductRoute");
 const user = require("./routes/UserRoute");
-const orders = require("./routes/OrderRoute");
-app.use("/api/v2", product);
+const order = require("./routes/OrderRoute");
+const payment = require("./routes/PaymentRoute");
+const cart = require("./routes/CartRoute");
 
-app.use("/api/v2", user);
+const routes = [product, user, payment, order, cart];
 
-app.use("/api/v2", orders);
+app.use([
+    express.json(),
+    cookieParser(),
+    bodyParser.urlencoded({ extended: true, limit: "50mb" }),
+    express.urlencoded({ extended: true, limit: "50mb" }),
+    fileUpload({ useTempFiles: true }),
+]);
+
+app.use("/api/v2", routes);
 
 app.use(ErrorHandle);
 

@@ -3,13 +3,12 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Please your Name"],
-        minlength: [3, "Please enter a name at least 3 characters"],
+        minlength: [3, "Please enter a name atleast 3 characters"],
         maxlength: [15, "Name can not big than 15 characters"],
     },
     email: {
@@ -83,39 +82,3 @@ userSchema.methods.getResetToken = function() {
 };
 
 module.exports = mongoose.model("User", userSchema);
-
-// Reset Password
-exports.resetPassword = catchAsyncErrors(async(req, res, next) => {
-    // Create Token hash
-
-    const resetPasswordToken = crypto
-        .createHash("sha256")
-        .update(req.params.token)
-        .digest("hex");
-
-    const user = await User.findOne({
-        resetPasswordToken,
-        resetPasswordTime: { $gt: Date.now() },
-    });
-
-    if (!user) {
-        return next(
-            new ErrorHandler("Reset password url is invalid or has been expired", 400)
-        );
-    }
-
-    if (req.body.password !== req.body.confirmPassword) {
-        return next(
-            new ErrorHandler("Password is not matched with the new password", 400)
-        );
-    }
-
-    user.password = req.body.password;
-
-    user.resetPasswordToken = undefined;
-    user.resetPasswordTime = undefined;
-
-    await user.save();
-
-    sendToken(user, 200, res);
-});

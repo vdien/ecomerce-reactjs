@@ -3,12 +3,15 @@ import "./EditProfile.css";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, loadUser, updateProfile } from "../../actions/userAction";
-
+import {
+  clearErrors,
+  loadUser,
+  updateProfile,
+} from "../../redux/actions/userAction";
 import { ToastContainer, toast } from "react-toastify";
-import Loading from "../../more/loader";
-import MetaData from "../../more/Metadata";
-import { UPDATE_PROFILE_RESET } from "../../constans/userConstans";
+import Loading from "../more/loader";
+import MetaData from "../more/Metadata";
+import { UPDATE_PROFILE_RESET } from "../../redux/constans/userConstans";
 import { useHistory } from "react-router-dom";
 
 const EditProfile = () => {

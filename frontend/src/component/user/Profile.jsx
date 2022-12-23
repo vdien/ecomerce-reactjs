@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Profile.css";
 import Header from "../Layout/Header";
-import MetaData from "../../more/Metadata";
+import MetaData from "../more/Metadata";
 import Footer from "../Layout/Footer";
-import Loading from "../../more/loader";
+import Loading from "../more/loader";
 
-const Profile = ({ history }) => {
+const Profile = () => {
+  const history = useHistory();
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
 
   useEffect(() => {

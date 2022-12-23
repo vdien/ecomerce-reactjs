@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useHistory } from "react-router-dom";
-import MetaData from "../../more/Metadata";
+import MetaData from "../more/Metadata";
 import "./Search.css";
 
 const Search = () => {

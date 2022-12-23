@@ -1,8 +1,9 @@
-const Order = require("../models/OderModel")
-const ErrorHandle = require("../utils/ErrorHandle.js");
-const catchAsyncErrors = require("../middleware/catchAsyncErrors.js")
+const Order = require("../models/OrderModel");
+const ErrorHandler = require("../utils/ErrorHandler.js");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const Product = require("../models/ProductModel");
 
-// create Order
+// Create Order
 exports.createOrder = catchAsyncErrors(async(req, res, next) => {
     const {
         shippingInfo,
@@ -28,31 +29,33 @@ exports.createOrder = catchAsyncErrors(async(req, res, next) => {
 
     res.status(201).json({
         success: true,
-        order
+        order,
     });
 });
 
-//get Single order
+//  Get Single order
 exports.getSingleOrder = catchAsyncErrors(async(req, res, next) => {
     const order = await Order.findById(req.params.id).populate(
         "user",
         "name email"
-    )
+    );
+
     if (!order) {
-        return next(ErrorHandle("Order Items not found with this id", 404))
+        return next(new ErrorHandler("Order not found with this id", 404));
     }
+
     res.status(200).json({
         success: true,
-        order
-    })
-})
+        order,
+    });
+});
 
 // Get all orders
 exports.getAllOrders = catchAsyncErrors(async(req, res, next) => {
     const orders = await Order.find({ user: req.user._id });
     res.status(200).json({
         success: true,
-        orders
+        orders,
     });
 });
 
@@ -69,13 +72,12 @@ exports.getAdminAllOrders = catchAsyncErrors(async(req, res, next) => {
     res.status(200).json({
         success: true,
         totalAmount,
-        orders
+        orders,
     });
 });
 
 // update Order Status ---Admin
 exports.updateAdminOrder = catchAsyncErrors(async(req, res, next) => {
-
     const order = await Order.findById(req.params.id);
 
     if (!order) {
@@ -104,7 +106,6 @@ exports.updateAdminOrder = catchAsyncErrors(async(req, res, next) => {
 });
 
 async function updateStock(id, quantity) {
-
     const product = await Product.findById(id);
 
     product.Stock -= quantity;
@@ -113,10 +114,7 @@ async function updateStock(id, quantity) {
 }
 
 // delete Order ---Admin
-
-
 exports.deleteOrder = catchAsyncErrors(async(req, res, next) => {
-
     const order = await Order.findById(req.params.id);
 
     if (!order) {
