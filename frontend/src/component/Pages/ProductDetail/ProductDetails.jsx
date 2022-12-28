@@ -2,7 +2,7 @@ import { Rating } from "@material-ui/lab";
 import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import MetaData from "../../more/Metadata";
 import Footer from "../../Layout/Footer";
@@ -10,15 +10,18 @@ import Header from "../../Layout/Header";
 import ReviewCard from "../../Products/ReviewCard";
 import "./ProductDetails.css";
 import Loading from "../../more/loader";
-import { clearErrors } from "../../../redux/actions/ProductActions";
+import { clearErrors, newReview } from "../../../redux/actions/ProductActions";
 import { getProductDetails } from "../../../redux/actions/ProductActions";
 import { addItemsToCart } from "../../../redux/actions/CartAction";
 import BottomTab from "../../more/BottomTab";
 import { addFavouriteItemsToCart } from "../../../redux/actions/FavouriteAction";
+import { NEW_REVIEW_RESET } from "../../../redux/constans/ProductConstans";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const history = useHistory();
+  const { isAuthenticated } = useSelector((state) => state.user);
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
@@ -65,7 +68,34 @@ const ProductDetails = () => {
     dispatch(addFavouriteItemsToCart(id, quantity));
     toast.success("Product Added to Favourites");
   };
-  const reviewSubmitHandler = (e) => {};
+
+  const reviewSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const myForm = new FormData();
+
+    myForm.set("rating", rating);
+    myForm.set("comment", comment);
+    myForm.set("productId", id);
+
+    isAuthenticated !== true ? history.push(`/login?redirect=/`) : <></>;
+
+    dispatch(newReview(myForm));
+
+    comment.length === 0
+      ? toast.error("Please fill the comment box")
+      : toast.success("Review done successfully reload for watch it");
+
+    dispatch({ type: NEW_REVIEW_RESET });
+  };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch(clearErrors());
+    }
+    dispatch(getProductDetails(id));
+  }, [dispatch, id, error]);
   return (
     <>
       {loading ? (
