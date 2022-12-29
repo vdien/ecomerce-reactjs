@@ -24,6 +24,9 @@ app.use([
     express.urlencoded({ extended: true, limit: "50mb" }),
     fileUpload({ useTempFiles: true }),
 ]);
+app.get("/", (req, res) => {
+    res.send("SERVER ON");
+});
 
 app.use("/api/v2", routes);
 
