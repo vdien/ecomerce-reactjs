@@ -18,7 +18,7 @@ const cart = require("./routes/CartRoute");
 const routes = [product, user, payment, order, cart];
 
 app.use([
-    express.json(),
+    express.json({ limit: "50mb" }),
     cookieParser(),
     bodyParser.urlencoded({ extended: true, limit: "50mb" }),
     express.urlencoded({ extended: true, limit: "50mb" }),
