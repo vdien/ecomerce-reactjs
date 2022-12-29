@@ -108,6 +108,8 @@ li {
 }
 
 .space__around {
+    display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -172,6 +174,10 @@ h3 {
 h3:hover {
     color: tomato;
     cursor: pointer;
+}
+
+.pz {
+    padding: 0px 0px;
 }
 
 .pz__15 {

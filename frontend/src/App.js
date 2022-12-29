@@ -27,6 +27,15 @@ import { Elements } from "@stripe/react-stripe-js";
 import Payment from "./component/Cart/Payment";
 import Success from "./component/Cart/Success";
 import MyOrder from "./component/user/MyOrder";
+import Dashboard from "./component/Admin/Dashboard";
+import UpdateOrder from "./component/Admin/UpdateOrder";
+import CreateProduct from "./component/Admin/CreateProduct";
+import AllProducts from "./component/Admin/AllProducts";
+import EditProduct from "./component/Admin/EditProduct";
+import AllOrder from "./component/Admin/AllOrder";
+import AllUsers from "./component/Admin/AllUsers";
+import UpdateUser from "./component/Admin/UpdateUser";
+import AllReviews from "./component/Admin/AllReviews";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -62,60 +71,77 @@ function App() {
         </Elements>
       )}
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/product/:id">
-          <ProductDetails />
-        </Route>
-        <Route exact path="/login">
-          <LoginSignup />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/products">
-          <Products />
-        </Route>
-        <Route exact path="/search">
-          <Search />
-        </Route>
-        <Route exact path="/products/:keyword">
-          <Products />
-        </Route>
-        <Route exact path="/support">
-          <Support />
-        </Route>
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
-        <Route exact path="/favourites">
-          <Favourite />
-        </Route>
-        <Route exact path="/shipping">
-          <Shipping />
-        </Route>
-        <ProtectedRoute exact path="/order/confirm">
-          <ConfirmOrder />
-        </ProtectedRoute>
-        <ProtectedRoute exact path="/success">
-          <Success />
-        </ProtectedRoute>
-        <ProtectedRoute exact path="/orders">
-          <MyOrder />
-        </ProtectedRoute>
-        <ProtectedRoute exact path="/me">
-          <Profile />
-        </ProtectedRoute>
-        <ProtectedRoute exact path="/me/update">
-          <UpdatePassword />
-        </ProtectedRoute>
-        <ProtectedRoute exact path="/me/update/info">
-          <EditProfile />
-        </ProtectedRoute>
-        <ProtectedRoute exact path="/me/update/info">
-          <EditProfile />
-        </ProtectedRoute>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/product/:id" component={ProductDetails} />
+        <Route exact path="/login" component={LoginSignup} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/products" component={Products} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/products/:keyword" component={Products} />
+        <Route exact path="/support" component={Support} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/favourites" component={Favourite} />
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        <ProtectedRoute exact path="/me" component={Profile} />
+        <ProtectedRoute exact path="/me/update" component={UpdatePassword} />
+        <ProtectedRoute exact path="/me/update/info" component={EditProfile} />
+        <ProtectedRoute exact path="/success" component={Success} />
+        <ProtectedRoute exact path="/orders" component={MyOrder} />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/dashboard"
+          component={Dashboard}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/product"
+          component={CreateProduct}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/products"
+          component={AllProducts}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/edit/product/:id"
+          component={EditProduct}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/orders"
+          component={AllOrder}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/order/:id"
+          component={UpdateOrder}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/users"
+          component={AllUsers}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/user/:id"
+          component={UpdateUser}
+        />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/reviews"
+          component={AllReviews}
+        />
         <Route
           exact
           path={
