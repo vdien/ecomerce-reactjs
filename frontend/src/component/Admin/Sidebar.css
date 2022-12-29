@@ -7,35 +7,44 @@
     flex-direction: column;
     overflow: hidden;
     height: 100vh;
-  }
-  
-  .sidebar > a:first-child {
+}
+
+.sidebar>a:first-child {
     padding: 0;
-  }
-  .sidebar > a > img {
+}
+
+.sidebar>a>img {
     width: 100%;
     transition: all 0.5s;
     padding: 1vmax 0;
-  }
+}
 
 .sidebar a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.493);
-    font: 200 1rem "Roboto";
+    font: 400 1rem "Roboto";
     padding: 1.8rem 1.2rem;
     transition: all 0.5s;
-  }  
-  .sidebar a > P {
+    color: black;
+}
+
+.sidebar a:hover {
+    background-color: #e94560;
+    transition: 0.3s;
+}
+
+.sidebar a>P {
     display: flex;
     align-items: center;
-  }
-  .sidebar a > p > svg {
+}
+
+.sidebar a>p>svg {
     margin-right: 0.5rem;
-  }
-  
-  .MuiTypography-root {
+}
+
+.MuiTypography-root {
     background-color: #fff !important;
-  }
-  .MuiTypography-root.MuiTreeItem-label.MuiTypography-body1 {
+}
+
+.MuiTypography-root.MuiTreeItem-label.MuiTypography-body1 {
     color: #999;
 }

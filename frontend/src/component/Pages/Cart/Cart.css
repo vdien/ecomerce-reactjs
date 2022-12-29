@@ -11,7 +11,7 @@
 
 .emptyCart>svg {
     font-size: 5vmax;
-    color: #3BB77E;
+    color: #e94560;
 }
 
 .emptyCart>p {
@@ -19,7 +19,7 @@
 }
 
 .emptyCart>a {
-    background-color: #3BB77E;
+    background-color: #e94560;
     color: white;
     border: none;
     padding: 1vmax 3vmax;
@@ -31,25 +31,7 @@
 
 .cartPage {
     padding: 5vmax;
-}
-
-.cartHeader {
-    background-color: #3BB77E;
-    width: 90%;
-    box-sizing: border-box;
-    margin: auto;
-    color: white;
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
-    font: 300 0.7vmax "Roboto";
-}
-
-.cartHeader>p {
-    margin: 10px;
-}
-
-.cartHeader>p:last-child {
-    text-align: end;
+    background: #f6f9fc;
 }
 
 .cartContainer {
@@ -58,6 +40,9 @@
     border-bottom: 1px solid #99999942;
     display: grid;
     grid-template-columns: 4fr 1fr 1fr;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }
 
 .cartInput {
@@ -68,7 +53,7 @@
 
 .cartInput>button {
     border: none;
-    background-color: #3BB77E;
+    background-color: #e94560;
     padding: 0.5vmax;
     cursor: pointer;
     color: white;
@@ -76,7 +61,7 @@
 }
 
 .cartInput>button:hover {
-    background-color: #3BB77E;
+    background-color: #e94560;
 }
 
 .cartInput>input {
@@ -106,7 +91,7 @@
 }
 
 .cartGrossProfitBox {
-    border-top: 3px solid #3BB77E;
+    border-top: 3px solid #e94560;
     margin: 1vmax 4vmax;
     box-sizing: border-box;
     padding: 2vmax 0;
@@ -121,7 +106,7 @@
 }
 
 .checkOutBtn>button {
-    background-color: #3BB77E;
+    background-color: #e94560;
     color: white;
     border: none;
     padding: 0.8vmax 3vmax;

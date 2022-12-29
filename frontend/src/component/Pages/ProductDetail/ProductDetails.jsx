@@ -159,7 +159,7 @@ const ProductDetails = () => {
                     alignItems: "center",
                   }}
                 >
-                  <span>Description:</span>
+                  <span></span>
                   <p>{product.description}</p>
                 </div>
                 <div
@@ -171,10 +171,13 @@ const ProductDetails = () => {
                   <div
                     className="wishlist"
                     style={{
+                      backgroundColor: "#e94560 ",
                       display: "flex",
                       alignItems: "center",
                       cursor: "pointer",
-                      padding: "15px 5px",
+                      padding: "10px 15px",
+                      marginRight: "5px",
+                      borderRadius: "8px",
                     }}
                     onClick={addToFavouriteHandler}
                   >
@@ -190,7 +193,10 @@ const ProductDetails = () => {
                     </svg>
                     <span
                       className="cartBtn"
-                      style={{ opacity: 0.7, padding: "0px 5px" }}
+                      style={{
+                        opacity: 0.7,
+                        padding: "0px 5px",
+                      }}
                     >
                       Add to wishlist
                     </span>
@@ -201,7 +207,8 @@ const ProductDetails = () => {
                     style={{
                       padding: "10px 5px",
                       alignItems: "center",
-                      backgroundColor: "#E4EAEC",
+                      backgroundColor: "#e94560",
+                      borderRadius: "8px",
                     }}
                   >
                     <svg
@@ -232,43 +239,39 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          {/* Reviews */}
-          <div className="reviews__heading">
-            <h1
-              style={{
-                padding: "5px 30px",
-                opacity: 1,
-                borderBottom: "1px solid #999",
-                fontFamily: "Poppins,sans-serif",
-              }}
-            >
-              Reviews
-            </h1>
-          </div>
+
           <div>
             {/* Reviews */}
-            <div
-              style={{
-                padding: "1vmax",
-              }}
-            >
-              {product.reviews && product.reviews[0] ? (
-                <div className="review__option">
-                  {product.reviews &&
-                    product.reviews.map((review) => (
-                      <ReviewCard review={review} />
-                    ))}
-                </div>
-              ) : (
-                <p
-                  className="noReviews"
+            <div className="review__product">
+              <div>
+                <h1
                   style={{
+                    padding: "5px 30px",
+                    opacity: 1,
+                    borderBottom: "1px solid #999",
                     fontFamily: "Poppins,sans-serif",
                   }}
                 >
-                  No Reviews Yet *
-                </p>
-              )}
+                  Reviews
+                </h1>
+                {product.reviews && product.reviews[0] ? (
+                  <div className="review__option">
+                    {product.reviews &&
+                      product.reviews.map((review) => (
+                        <ReviewCard review={review} />
+                      ))}
+                  </div>
+                ) : (
+                  <p
+                    className="noReviews"
+                    style={{
+                      fontFamily: "Poppins,sans-serif",
+                    }}
+                  >
+                    No Reviews Yet *
+                  </p>
+                )}
+              </div>
               <div
                 style={{
                   padding: "0px 2vmax",
@@ -345,7 +348,7 @@ const ProductDetails = () => {
                     margin: "1vmax 0px",
                     fontFamily: "sans-serif",
                     padding: "10px 15px",
-                    background: "#3BB77E",
+                    background: "#e94560",
                     border: "none",
                     cursor: "pointer",
                     color: "#fff",

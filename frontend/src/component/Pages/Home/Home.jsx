@@ -37,8 +37,18 @@ const Home = () => {
           {/* Carousel */}
           <div className="banner">
             <Carousel>
-              <img src={bg} className="bgImg" alt="" />
-              <img src={bg2} className="bgImg" alt="" />
+              <img
+                style={{ opacity: 0.8 }}
+                src="https://nuochoangoisao.com/wp-content/uploads/2020/04/banner-nuoc-hoa-nam-bleu-chanel-2.jpg"
+                className="bgImg"
+                alt=""
+              />
+              <img
+                src={bg2}
+                style={{ opacity: 0.8 }}
+                className="bgImg"
+                alt=""
+              />
             </Carousel>
             <div className="home__content">
               <div
@@ -121,7 +131,7 @@ const Home = () => {
                       width: "auto",
                       height: "50px",
                       border: "none",
-                      background: "#3BB77E",
+                      background: "#e94560",
                       margin: "10px 0",
                       fontSize: "1.2vmax",
                       color: "#fff",
@@ -135,14 +145,15 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          <h2 className="homeHeading">Featured Products</h2>
-          <div className="container" id="container">
-            {products &&
-              products.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
-          </div>
+          <section className="FeaturedProducts">
+            <h2 className="homeHeading">Featured Products</h2>
+            <div className="container--product" id="container">
+              {products &&
+                products.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
+            </div>
+          </section>
           <ToastContainer
             position="bottom-center"
             autoClose={5000}

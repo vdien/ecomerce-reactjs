@@ -43,14 +43,12 @@ const UpdateProduct = ({ history, match }) => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    "Personal",
-    "cloth",
-    "Ladies Cloth",
-    "Shoes",
-    "Food",
-    "Electronics",
-    "Sports",
-    "Others",
+    "Dior",
+    "Versace",
+    "Lacoste",
+    "Chanel",
+    "Gucci",
+    "Clavin Klein",
   ];
 
   const productId = match.params.id;

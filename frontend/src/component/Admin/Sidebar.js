@@ -18,7 +18,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <Link to="/">
         <img
-          src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/logo.svg"
+          src="https://res.cloudinary.com/duis3keif/image/upload/v1672299520/logo/logo.6172109437bb6cb48eb8dc1f65c9964c_wzt1dr.svg"
           alt="Ecommerce"
         />
       </Link>

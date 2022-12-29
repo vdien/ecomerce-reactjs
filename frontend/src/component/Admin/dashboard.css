@@ -1,4 +1,5 @@
 .dashboard {
+    padding: 10px 10px;
     width: 100vw;
     max-width: 100%;
     display: grid;
@@ -32,24 +33,24 @@
 }
 
 .dashboardSummary>div>p {
-    background-color: #3BB77E;
+    background-color: #e94560;
     color: white;
     font: 300 1.3rem "Roboto";
     text-align: center;
     padding: 1.5rem;
     width: 100%;
     margin: 0 2rem;
+    border-radius: 8px;
 }
 
 .dashboardSummaryBox2>a {
     color: rgb(0, 0, 0);
-    font: 300 2rem "Roboto";
     text-align: center;
     background-color: rgb(255, 233, 174);
     text-decoration: none;
     padding: 1.5rem;
-    width: 10vmax;
-    height: 10vmax;
+    width: 50px;
+    height: 50px;
     margin: 2rem;
     border-radius: 100%;
     display: flex;

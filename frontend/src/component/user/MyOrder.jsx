@@ -10,6 +10,8 @@ import BottomTab from "../more/BottomTab";
 import Loading from "../more/loader";
 import MetaData from "../more/Metadata";
 import { clearErrors, myOrders } from "../../redux/actions/OrderAction";
+import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 
 const MyOrder = () => {
   const dispatch = useDispatch();
@@ -92,17 +94,21 @@ const MyOrder = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="myOrdersPage">
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="myOrdersTable"
-            autoHeight
-          />
-        </div>
+        <>
+          <Header />
+          <div className="myOrdersPage">
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={10}
+              disableSelectionOnClick
+              className="myOrdersTable"
+              autoHeight
+            />
+          </div>
+        </>
       )}
+      <Footer />
       <BottomTab />
       <ToastContainer
         position="bottom-center"

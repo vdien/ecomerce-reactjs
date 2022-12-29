@@ -11,7 +11,7 @@
 
 .orderSuccess>svg {
     font-size: 7vmax;
-    color: #3BB77E;
+    color: #e94560;
 }
 
 .orderSuccess>p {
@@ -19,7 +19,7 @@
 }
 
 .orderSuccess>a {
-    background-color: #3BB77E;
+    background-color: #e94560;
     color: white;
     border: none;
     padding: 1vmax 3vmax;

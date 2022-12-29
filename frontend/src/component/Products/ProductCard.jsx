@@ -38,7 +38,12 @@ const ProductCard = ({ product }) => {
             >
               {product.offerPrice > 0 ? `$${product.offerPrice}` : ""}
             </h1>
-            <span className="p__Price">{`$${product.price}`}</span>
+            <h4
+              className="p__Price"
+              style={{
+                color: "#e94560",
+              }}
+            >{`$${product.price}`}</h4>
           </div>
         </div>
       </Link>

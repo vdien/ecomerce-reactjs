@@ -8,7 +8,7 @@ ul.pagination {
     background-color: #fff;
     list-style: none;
     border: 1px solid rgba(0, 0, 0, 0.178);
-    padding: 1vmax 1.5vmax;
+    padding: 0.5vmax 1.5vmax;
     transition: all 0.3s;
     cursor: pointer;
 }
@@ -37,7 +37,7 @@ ul.pagination {
 }
 
 .pageItemActive {
-    background-color: #197EF3;
+    background-color: #e94560;
 }
 
 .pageLinkActive {
@@ -48,6 +48,10 @@ li.category-link {
     list-style: none;
     font-family: Roboto;
     cursor: pointer;
-    border-top: 1px solid #999;
     padding: 10px 10px;
+}
+
+li.category-link:hover {
+    background-color: #e94560;
+    transition: 0.4s
 }

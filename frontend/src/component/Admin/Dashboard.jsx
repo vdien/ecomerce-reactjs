@@ -9,7 +9,7 @@ import Chart from "chart.js/auto";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../more/loader.jsx";
 import MetaData from "../more/Metadata.js";
-import { getAdminProduct } from "../../redux/actions/ProductActions.js";
+import { getProduct } from "../../redux/actions/ProductActions.js";
 import { getAllOrders } from "../../redux/actions/OrderAction.js";
 import { getAllUsers } from "../../redux/actions/userAction.js";
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-    dispatch(getAdminProduct());
+    dispatch(getProduct());
     dispatch(getAllOrders());
     dispatch(getAllUsers());
   }, [dispatch]);
@@ -48,8 +48,8 @@ const Dashboard = () => {
     datasets: [
       {
         label: "TOTAL AMOUNT",
-        backgroundColor: ["#3BB77E"],
-        hoverBackgroundColor: ["#3BB77E"],
+        backgroundColor: ["#e94560"],
+        hoverBackgroundColor: ["#e94560"],
         data: [0, totalAmount],
       },
     ],
@@ -84,6 +84,9 @@ const Dashboard = () => {
                   Total Amount <br /> ${totalAmount}
                 </p>
               </div>
+              <div className="lineChart">
+                <Line data={lineState} />
+              </div>
               <div className="dashboardSummaryBox2">
                 <Link to="/admin/products">
                   <p>Product</p>
@@ -98,10 +101,6 @@ const Dashboard = () => {
                   <p>{users && users.length}</p>
                 </Link>
               </div>
-            </div>
-
-            <div className="lineChart">
-              <Line data={lineState} />
             </div>
 
             <div className="doughnutChart">

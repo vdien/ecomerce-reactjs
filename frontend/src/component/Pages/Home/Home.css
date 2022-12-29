@@ -42,10 +42,10 @@ button.Home__button {
     color: rgb(0, 0, 0, 0.7);
 }
 
-.container {
+.container--product {
     display: flex;
     margin: 2vmax auto;
-    width: 80vw;
+    width: 90%;
     flex-wrap: wrap;
     justify-content: center;
     max-width: 100%;
@@ -55,6 +55,10 @@ h1.discountPrice {
     font-size: 1vmax;
     text-decoration: line-through;
     padding-left: 10px;
+}
+
+.FeaturedProducts {
+    background: #f6f9fc;
 }
 
 .ProductCard {
@@ -67,6 +71,9 @@ h1.discountPrice {
     margin: 2vmax;
     transition: all 0.5s;
     padding-bottom: 0.5vmax;
+    background-color: #fff;
+    box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
+    border-radius: 8px;
 }
 
 img.ProductImg {
@@ -160,17 +167,8 @@ button.Home__button {
     width: 20vmax;
     padding: 1vmax;
     font-size: 1.4vmax;
-    margin: 5vmax auto;
+    margin: auto;
     color: rgb(0, 0, 0, 0.7);
-}
-
-.container {
-    display: flex;
-    margin: 2vmax auto;
-    width: 80vw;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 100%;
 }
 
 .ProductCard {

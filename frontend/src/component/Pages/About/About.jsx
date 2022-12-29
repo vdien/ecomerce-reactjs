@@ -29,7 +29,7 @@ const About = () => {
                 <div className="row flex">
                   <div className="col__2">
                     <img
-                      src="http://wp.alithemes.com/html/nest/demo/assets/imgs/page/about-1.svg"
+                      src="https://img.lovepik.com/desgin_photo/40083/2477_detail.jpg"
                       alt=""
                     />
                   </div>

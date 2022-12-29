@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
-
 import { Button } from "@material-ui/core";
 import MetaData from "../more/Metadata";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
@@ -32,14 +31,12 @@ const CreateProduct = ({ history }) => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    "Personal",
-    "cloth",
-    "Ladies Cloth",
-    "Gift",
-    "Food",
-    "Electronics",
-    "Sports",
-    "Others",
+    "Dior",
+    "Versace",
+    "Lacoste",
+    "Chanel",
+    "Gucci",
+    "Clavin Klein",
   ];
 
   useEffect(() => {

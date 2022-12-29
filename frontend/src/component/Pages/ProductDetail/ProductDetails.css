@@ -1,7 +1,7 @@
 .ProductDetails {
     display: flex;
     width: 100%;
-    margin: 20px 0;
+    background: #f6f9fc;
 }
 
 input:checked~label {
@@ -65,9 +65,19 @@ p.noReviews {
     text-align: center;
 }
 
+.review__product {
+    border-top: 1px solid #1123;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-items: flex-start;
+    background: #f6f9fc;
+}
+
 .detailsBlock-3-1-1>button {
     width: 100%;
-    background: #3BB77E;
+    background: #e94560;
     border: none;
     color: #fff;
     height: 20px;

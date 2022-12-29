@@ -41,12 +41,6 @@ const Favourite = () => {
           ) : (
             <>
               <div className="favouritesPage">
-                <div className="favouritesHeader">
-                  <p>Product</p>
-                  <p>Price</p>
-                  <p>Stock Status</p>
-                  <p>Action</p>
-                </div>
                 {favouriteItems &&
                   favouriteItems.map((item) => (
                     <div className="favouritesContainer" key={item.product}>
@@ -56,9 +50,9 @@ const Favourite = () => {
                       />
                     </div>
                   ))}
-                <Footer />
-                <BottomTab />
               </div>
+              <Footer />
+              <BottomTab />
             </>
           )}
         </>

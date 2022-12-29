@@ -24,7 +24,7 @@ const Profile = () => {
       ) : (
         <>
           <Header />
-          <div>
+          <div style={{ background: "#f6f9fc" }}>
             <MetaData title={`${user.name}'s profile`} />
             <div className="profileContainer">
               <div

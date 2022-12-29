@@ -12,7 +12,6 @@ import { ToastContainer, toast } from "react-toastify";
 import {
   clearErrors,
   deleteProduct,
-  getAdminProduct,
   getProduct,
 } from "../../redux/actions/ProductActions";
 import { DELETE_PRODUCT_RESET } from "../../redux/constans/ProductConstans";

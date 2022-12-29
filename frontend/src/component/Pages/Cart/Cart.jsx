@@ -66,12 +66,6 @@ const Cart = () => {
       ) : (
         <>
           <div className="cartPage">
-            <div className="cartHeader">
-              <p>Product</p>
-              <p>Quantity</p>
-              <p>Subtotal</p>
-            </div>
-
             {cartItems &&
               cartItems.map((item) => (
                 <div className="cartContainer" key={item.product}>
