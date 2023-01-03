@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Loading from "../../more/loader";
-import MetaData from "../../more/Metadata";
-import Footer from "../../Layout/Footer";
-import Header from "../../Layout/Header";
-
+import Footer from "../../component/Layout/Footer";
+import Header from "../../component/Layout/Header";
+import Loading from "../../component/more/loader";
+import MetaData from "../../component/more/Metadata";
 import "./About.css";
 
 const About = () => {

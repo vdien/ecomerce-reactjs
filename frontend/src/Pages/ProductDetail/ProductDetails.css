@@ -96,6 +96,9 @@ input[type="number"] {
         overflow: hidden;
         text-align: center;
     }
+    .detailsBlock {
+        margin-bottom: 10px;
+    }
     .detailsBlock-3-1 {
         flex-direction: column;
     }
@@ -132,8 +135,5 @@ input[type="number"] {
         display: flex!important;
         align-items: center!important;
         justify-content: center!important;
-    }
-    .first__varse {
-        margin: unset!important;
     }
 }
