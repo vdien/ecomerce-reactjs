@@ -1,4 +1,4 @@
-import axios from "axios";
+import publicClient from "../../api/client/PublicClient";
 import {
     ALL_PRODUCT_FAIL,
     ALL_PRODUCT_REQUEST,
@@ -40,7 +40,7 @@ export const getProduct =
             if (category) {
                 link = `/api/v2/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
             }
-            const { data } = await axios.get(link);
+            const data = await publicClient.get(link);
 
             dispatch({
                 type: ALL_PRODUCT_SUCCESS,
@@ -49,7 +49,7 @@ export const getProduct =
         } catch (error) {
             dispatch({
                 type: ALL_PRODUCT_FAIL,
-                payload: error.response.data.message,
+                payload: error,
             });
         }
     };
@@ -59,7 +59,7 @@ export const getProductDetails = (id) => async(dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-        const { data } = await axios.get(`/api/v2/product/${id}`);
+        const data = await publicClient.get(`/api/v2/product/${id}`);
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -68,7 +68,7 @@ export const getProductDetails = (id) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: PRODUCT_DETAILS_FAIL,
-            payload: error.response.message,
+            payload: error,
         });
     }
 };
@@ -81,7 +81,7 @@ export const newReview = (reviewData) => async(dispatch) => {
             headers: { "Content-Type": "application/json" },
         };
 
-        const { data } = await axios.post(
+        const data = await publicClient.post(
             `/api/v2/product/review`,
             reviewData,
             config
@@ -94,7 +94,7 @@ export const newReview = (reviewData) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_REVIEW_FAIL,
-            payload: error.response.data.message,
+            payload: error.message,
         });
     }
 };
@@ -108,7 +108,7 @@ export const createProduct = (productData) => async(dispatch) => {
             headers: { "Content-Type": "application/json" },
         };
 
-        const { data } = await axios.post(
+        const data = await publicClient.post(
             `/api/v2/product/new`,
             productData,
             config
@@ -121,7 +121,7 @@ export const createProduct = (productData) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_PRODUCT_FAIL,
-            payload: error.response.data.message,
+            payload: error.message,
         });
     }
 };
@@ -131,7 +131,7 @@ export const deleteProduct = (id) => async(dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST });
 
-        const { data } = await axios.delete(`/api/v2/product/${id}`);
+        const data = await publicClient.delete(`/api/v2/product/${id}`);
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -140,7 +140,7 @@ export const deleteProduct = (id) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_PRODUCT_FAIL,
-            payload: error.response.data.message,
+            payload: error.message,
         });
     }
 };
@@ -154,7 +154,7 @@ export const updateProduct = (id, productData) => async(dispatch) => {
             headers: { "Content-Type": "application/json" },
         };
 
-        const { data } = await axios.put(
+        const data = await publicClient.put(
             `/api/v2/product/${id}`,
             productData,
             config
@@ -167,7 +167,7 @@ export const updateProduct = (id, productData) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_PRODUCT_FAIL,
-            payload: error.response.data.message,
+            payload: error.message,
         });
     }
 };
@@ -177,7 +177,7 @@ export const getAllReviews = (id) => async(dispatch) => {
     try {
         dispatch({ type: ALL_REVIEW_REQUEST });
 
-        const { data } = await axios.get(`/api/v2/reviews?id=${id}`);
+        const data = await publicClient.get(`/api/v2/reviews?id=${id}`);
 
         dispatch({
             type: ALL_REVIEW_SUCCESS,
@@ -186,7 +186,7 @@ export const getAllReviews = (id) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_REVIEW_FAIL,
-            payload: error.response.data.message,
+            payload: error.message,
         });
     }
 };
@@ -196,7 +196,7 @@ export const deleteReviews = (reviewId, productId) => async(dispatch) => {
     try {
         dispatch({ type: DELETE_REVIEW_REQUEST });
 
-        const { data } = await axios.delete(
+        const data = await publicClient.delete(
             `/api/v2/reviews?id=${reviewId}&productId=${productId}`
         );
 
@@ -207,7 +207,7 @@ export const deleteReviews = (reviewId, productId) => async(dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_REVIEW_FAIL,
-            payload: error.response.data.message,
+            payload: error.message,
         });
     }
 };

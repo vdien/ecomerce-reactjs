@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ProductCard from "../../Products/ProductCard";
-import { clearErrors, getProduct } from "../../../redux/actions/ProductActions";
+
 import Pagination from "react-js-pagination";
 import "./Products.css";
 import Typography from "@material-ui/core/Typography";
-import Loading from "../../more/loader";
-import MetaData from "../../more/Metadata";
-import Header from "../../Layout/Header";
-import Footer from "../../Layout/Footer";
+import Loading from "../../component/more/loader";
+import MetaData from "../../component/more/Metadata";
+import Footer from "../../component/Layout/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import { useParams } from "react-router-dom";
+
+import { clearErrors, getProduct } from "../../redux/actions/ProductActions";
+import ProductCard from "../../component/Products/ProductCard";
+import Header from "../../component/Layout/Header";
 
 const Products = () => {
   const { keyword } = useParams();

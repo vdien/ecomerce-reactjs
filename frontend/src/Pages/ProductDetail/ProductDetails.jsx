@@ -4,18 +4,22 @@ import Carousel from "react-material-ui-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import MetaData from "../../more/Metadata";
-import Footer from "../../Layout/Footer";
-import Header from "../../Layout/Header";
-import ReviewCard from "../../Products/ReviewCard";
 import "./ProductDetails.css";
-import Loading from "../../more/loader";
-import { clearErrors, newReview } from "../../../redux/actions/ProductActions";
-import { getProductDetails } from "../../../redux/actions/ProductActions";
-import { addItemsToCart } from "../../../redux/actions/CartAction";
-import BottomTab from "../../more/BottomTab";
-import { addFavouriteItemsToCart } from "../../../redux/actions/FavouriteAction";
-import { NEW_REVIEW_RESET } from "../../../redux/constans/ProductConstans";
+
+import {
+  clearErrors,
+  getProductDetails,
+  newReview,
+} from "../../redux/actions/ProductActions";
+import { addItemsToCart } from "../../redux/actions/CartAction";
+import { addFavouriteItemsToCart } from "../../redux/actions/FavouriteAction";
+import { NEW_REVIEW_RESET } from "../../redux/constans/ProductConstans";
+import MetaData from "../../component/more/Metadata";
+import Header from "../../component/Layout/Header";
+import Footer from "../../component/Layout/Footer";
+import BottomTab from "../../component/more/BottomTab";
+import ReviewCard from "../../component/Products/ReviewCard";
+import Loading from "../../component/more/loader";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();

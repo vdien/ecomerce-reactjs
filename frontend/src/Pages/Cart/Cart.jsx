@@ -5,17 +5,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Link, useHistory } from "react-router-dom";
-
-import BottomTab from "../../more/BottomTab";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import Header from "../../component/Layout/Header";
+import BottomTab from "../../component/more/BottomTab";
+import CartItemCard from "../../component/Cart/CartItemCard";
 import {
   addItemsToCart,
   removeItemsFromCart,
-} from "../../../redux/actions/CartAction";
-import CartItemCard from "../../Cart/CartItemCard";
-import Header from "../../Layout/Header";
-import Footer from "../../Layout/Footer";
+} from "../../redux/actions/CartAction";
+import Footer from "../../component/Layout/Footer";
 
 const Cart = () => {
   const dispatch = useDispatch();

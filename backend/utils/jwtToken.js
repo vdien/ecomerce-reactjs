@@ -2,13 +2,7 @@
 const sendToken = (user, statusCode, res) => {
     const token = user.getJwtToken();
 
-    // Options for cookies
-    const options = {
-        expires: process.env.JWT_EXPIRE,
-        httpOnly: true,
-    };
-
-    res.status(statusCode).cookie("token", token, options).json({
+    res.status(statusCode).json({
         success: true,
         user,
         token,

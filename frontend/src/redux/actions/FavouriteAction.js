@@ -1,13 +1,13 @@
+import publicClient from "../../api/client/PublicClient";
 import {
     ADD_TO_FAVOURITE,
     REMOVE_FROM_FAVOURITE,
 } from "../constans/FavouriteConstans";
-import axios from "axios";
 
 // Add to favourites
 export const addFavouriteItemsToCart =
     (id, quantity) => async(dispatch, getState) => {
-        const { data } = await axios.get(`/api/v2/product/${id}`);
+        const data = await publicClient.get(`/api/v2/product/${id}`);
 
         dispatch({
             type: ADD_TO_FAVOURITE,

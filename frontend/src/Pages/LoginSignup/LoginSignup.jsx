@@ -5,15 +5,13 @@ import FaceIcon from "@mui/icons-material/Face";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./LoginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  clearErrors,
-  login,
-  register,
-} from "../../../redux/actions/userAction";
-import MetaData from "../../more/Metadata";
+
+import MetaData from "../../component/more/Metadata";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Loader from "../../more/loader";
+import Loading from "../../component/more/loader";
+import { login, register } from "../../redux/actions/userAction";
+import { clearErrors } from "../../redux/actions/ProductActions";
 
 const LoginSignup = () => {
   const dispatch = useDispatch();
@@ -43,6 +41,7 @@ const LoginSignup = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
+
     dispatch(login(loginEmail, loginPassword));
   };
 
@@ -107,7 +106,7 @@ const LoginSignup = () => {
   return (
     <>
       {loading ? (
-        <Loader />
+        <Loading />
       ) : (
         <>
           <MetaData title="Login or Signup" />
