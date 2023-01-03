@@ -1,8 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-// const baseURL = "https://ecomerce-backend.vercel.app/";
-const baseURL = "http://localhost:4000/";
+const baseURL = "https://lnvdien-ecomerce-be.vercel.app/";
+
 const token = Cookies.get("auth_token") || null;
 
 const publicClient = axios.create({
