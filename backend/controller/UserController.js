@@ -88,9 +88,7 @@ exports.forgetPassword = catchAsyncErrors(async(req, res, next) => {
         validateBeforeSave: false,
     });
 
-    const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/password/reset/${resetToken}`;
+    const resetPasswordUrl = `https://ecomerce-reactjs-two.vercel.app/password/reset/${resetToken}`;
 
     const message = `Your password reset token is :- \n\n ${resetPasswordUrl}`;
 
