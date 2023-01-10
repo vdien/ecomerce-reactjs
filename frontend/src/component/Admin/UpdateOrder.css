@@ -21,13 +21,6 @@
     outline: none;
 }
 
-.updateOrderForm>div>svg {
-    position: absolute;
-    transform: translateX(1vmax);
-    font-size: 1.6vmax;
-    color: rgba(0, 0, 0, 0.623);
-}
-
 @media screen and (max-width: 600px) {
     .updateOrderForm {
         padding: 5vmax;

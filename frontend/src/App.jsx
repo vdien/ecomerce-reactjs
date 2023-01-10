@@ -26,6 +26,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import Payment from "./component/Cart/Payment";
 import Success from "./component/Cart/Success";
 import MyOrder from "./component/user/MyOrder";
+import OrderDetail from "./component/user/OrderDetail";
 import Dashboard from "./component/Admin/Dashboard";
 import UpdateOrder from "./component/Admin/UpdateOrder";
 import CreateProduct from "./component/Admin/CreateProduct";
@@ -113,6 +114,11 @@ function App() {
                 <ProtectedRoute exact path="/success" component={Success} />
                 <ProtectedRoute exact path="/orders" component={MyOrder} />
                 <ProtectedRoute
+                    exact
+                    path="/order/:id"
+                    component={OrderDetail}
+                />
+                <ProtectedRoute
                     isAdmin={true}
                     exact
                     path="/dashboard"
@@ -148,6 +154,7 @@ function App() {
                     path="/admin/order/:id"
                     component={UpdateOrder}
                 />
+
                 <ProtectedRoute
                     isAdmin={true}
                     exact

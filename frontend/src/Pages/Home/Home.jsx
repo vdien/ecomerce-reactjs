@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import Carousel from "react-material-ui-carousel";
-
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +11,6 @@ import MetaData from "../../component/more/Metadata";
 import BottomTab from "../../component/more/BottomTab";
 import { clearErrors, getProduct } from "../../redux/actions/ProductActions";
 import ProductCard from "../../component/Products/ProductCard";
-import { loadUser } from "../../redux/actions/userAction";
 
 const Home = () => {
     const dispatch = useDispatch();
