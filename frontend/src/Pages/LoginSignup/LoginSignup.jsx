@@ -10,7 +10,7 @@ import MetaData from "../../component/more/Metadata";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../../component/more/loader";
-import { login, register } from "../../redux/actions/userAction";
+import { loadUser, login, register } from "../../redux/actions/userAction";
 import { clearErrors } from "../../redux/actions/ProductActions";
 
 const LoginSignup = () => {
@@ -83,6 +83,7 @@ const LoginSignup = () => {
         }
 
         if (isAuthenticated) {
+            dispatch(loadUser());
             history.push(redirect);
         }
     }, [dispatch, error, history, isAuthenticated, redirect]);
