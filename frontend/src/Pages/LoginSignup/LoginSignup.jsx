@@ -2,7 +2,7 @@ import { React, useEffect, useRef, useState } from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./LoginSignup.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,13 +10,13 @@ import MetaData from "../../component/more/Metadata";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../../component/more/loader";
-import { loadUser, login, register } from "../../redux/actions/userAction";
+import { login, register } from "../../redux/actions/userAction";
 import { clearErrors } from "../../redux/actions/ProductActions";
 
 const LoginSignup = () => {
     const dispatch = useDispatch();
     const location = useLocation();
-    const history = useHistory();
+
     const { error, loading, isAuthenticated } = useSelector(
         (state) => state.user
     );
@@ -83,10 +83,9 @@ const LoginSignup = () => {
         }
 
         if (isAuthenticated) {
-            dispatch(loadUser());
-            history.push(redirect);
+            window.location.replace(redirect);
         }
-    }, [dispatch, error, history, isAuthenticated, redirect]);
+    }, [dispatch, error, isAuthenticated, redirect]);
 
     const switchTabs = (e, tab) => {
         if (tab === "login") {

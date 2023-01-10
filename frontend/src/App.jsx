@@ -58,9 +58,7 @@ function App() {
                 families: ["Roboto", "Droid Sans", "Chilanka"],
             },
         });
-
         store.dispatch(loadUser());
-
         getStripeApiKey();
     }, []);
 
