@@ -27,7 +27,6 @@
         "mongoose": "^6.5.3",
         "nodemailer": "^6.7.8",
         "nodemon": "^2.0.19",
-        "react-material-ui-carousel": "^3.4.2",
         "react-redux": "^7.2.6",
         "react-router-dom": "^5.2.0",
         "stripe": "^11.4.0",
