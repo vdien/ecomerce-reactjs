@@ -44,14 +44,6 @@ const Home = () => {
                                 className="bgImg"
                                 alt=""
                             />
-                            <img
-                                src={
-                                    "https://nuochoangoisao.com/wp-content/uploads/2020/04/banner-nuoc-hoa-nam-bleu-chanel-2.jpg"
-                                }
-                                style={{ opacity: 0.8 }}
-                                className="bgImg"
-                                alt=""
-                            />
                         </Carousel>
                         <div className="home__content">
                             <div
