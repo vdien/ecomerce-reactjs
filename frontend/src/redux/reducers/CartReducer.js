@@ -2,6 +2,7 @@ import {
     ADD_TO_CART,
     REMOVE_CART_ITEM,
     SAVE_SHIPPING_INFO,
+    UPDATE_QUANTITY_CART,
 } from "../constans/CartConstans";
 
 export const cartReducer = (
@@ -10,24 +11,47 @@ export const cartReducer = (
 ) => {
     switch (action.type) {
         case ADD_TO_CART:
-            const item = action.payload;
-            const isItemExist = state.cartItems.find(
-                (i) => i.product === item.product
-            );
-            if (isItemExist) {
-                return {
-                    ...state,
-                    cartItems: state.cartItems.map((i) =>
-                        i.product === isItemExist.product ? item : i
-                    ),
-                };
-            } else {
-                return {
-                    ...state,
-                    cartItems: [...state.cartItems, item],
-                };
+            {
+                const item = action.payload;
+                const isItemExist = state.cartItems.find(
+                    (i) => i.product === item.product
+                );
+                if (isItemExist) {
+                    return {
+                        ...state,
+                        cartItems: state.cartItems.map((i) =>
+                            i.product === isItemExist.product ?
+                            {...item, quantity: i.quantity + item.quantity } :
+                            i
+                        ),
+                    };
+                } else {
+                    return {
+                        ...state,
+                        cartItems: [...state.cartItems, item],
+                    };
+                }
             }
-
+        case UPDATE_QUANTITY_CART:
+            {
+                const item = action.payload;
+                const isItemExist = state.cartItems.find(
+                    (i) => i.product === item.product
+                );
+                if (isItemExist) {
+                    return {
+                        ...state,
+                        cartItems: state.cartItems.map((i) =>
+                            i.product === isItemExist.product ? item : i
+                        ),
+                    };
+                } else {
+                    return {
+                        ...state,
+                        cartItems: [...state.cartItems, item],
+                    };
+                }
+            }
         case REMOVE_CART_ITEM:
             return {
                 ...state,
